@@ -3,13 +3,8 @@
  * 
  * At the moment, it 
  *  - gets the auth token (which could refactored/moved a login screen)
- *  - tries to send the contacts to the server (currently API giving 500 error,
- *    maybe something wrong with data being sent)
+ *  - sends the contacts to the server
  * 
- * TODO:
- *  - fix contacts upload
- *  - fix unnecessary rerenders
- *  - refactor/clean up code
  */
 
 import React, {useState, useEffect} from 'react';
@@ -22,11 +17,10 @@ import {
   StatusBar,
   PermissionsAndroid,
 } from 'react-native';
-import axios from 'axios';
 import Contacts from 'react-native-contacts';
 
-import {Colors} from 'react-native/Libraries/NewAppScreen';
-import {cleanContacts} from './helpers.js';
+import { Colors } from 'react-native/Libraries/NewAppScreen';
+import { cleanContacts } from './helpers.js';
 
 const ROOT_URL = 'https://antisocial-network-api.herokuapp.com';
 
@@ -37,20 +31,23 @@ const App = () => {
   useEffect(() => {
     const getEverything = async () => {
       const getAuthToken = async () => {
-        const response = await axios.post(
-          `${ROOT_URL}/auth/login`,
-          '{"email": "admin@mail.com", "password": "admin"}',
-          {
-            headers: {
-              'Content-Type': 'application/json',
-            },
+        const response = await fetch(
+          `${ROOT_URL}/auth/login`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
           },
+          body: '{"email": "admin@mail.com", "password": "admin"}'
+          }
         );
-        return response.data.access_token;
+
+        const { access_token } = await response.json();
+        return access_token;
       };
 
       setAuthToken(await getAuthToken());
 
+      // check platform os and asks for the necessary permissions
       if (Platform.OS === 'ios') {
         Contacts.getAll((err, contacts) => {
           if (err) {
@@ -92,17 +89,15 @@ const App = () => {
 
           // should be userId where it's hardcoded 1
           const cleanedContacts = cleanContacts(1, allContacts);
-          console.log(cleanedContacts);
-
-          const createContactsResponse = await axios.post(
-            `${ROOT_URL}/api/v1/contacts`,
-            JSON.stringify(cleanedContacts),
-            {
+          
+          // send to server
+          await fetch(
+            `${ROOT_URL}/api/v1/contacts`, {
+              method: 'POST',
               headers,
-            },
+              body: JSON.stringify(cleanedContacts)
+            }
           );
-
-          console.log(createContactsResponse.response);
         };
 
         await sendContactsToServer(authToken, allContacts);
