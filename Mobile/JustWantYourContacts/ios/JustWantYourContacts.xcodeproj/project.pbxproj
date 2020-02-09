@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		00E356F31AD99517003FC87E /* JustWantYourContactsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* JustWantYourContactsTests.m */; };
+		0AB9A545045111CF2E7EBAC4 /* libPods-JustWantYourContacts-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A063AADF4E8B682134188E71 /* libPods-JustWantYourContacts-tvOS.a */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB11A68108700A75B9A /* LaunchScreen.xib */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
@@ -16,10 +17,9 @@
 		2D02E4BD1E0B4A84006451C7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		2D02E4BF1E0B4AB3006451C7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		2DCD954D1E0B4F2C00145EB5 /* JustWantYourContactsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* JustWantYourContactsTests.m */; };
-		412130FB0538977AFE2007CE /* libPods-JustWantYourContacts.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BB47D879A8DDE45074E4879 /* libPods-JustWantYourContacts.a */; };
-		4C55CB2BB7ECF1B8C14132B5 /* libPods-JustWantYourContactsTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 99BE39FCB773AE1951D68F5B /* libPods-JustWantYourContactsTests.a */; };
-		5858C548CEE72C45ECC91EBE /* libPods-JustWantYourContacts-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 37515B09C076E0CC55C19D1E /* libPods-JustWantYourContacts-tvOS.a */; };
-		8F4B881EFA9E6B64104E3E2D /* libPods-JustWantYourContacts-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A93FFEE2EA14ABDF9BF3217 /* libPods-JustWantYourContacts-tvOSTests.a */; };
+		66B2D0EAD882BD7276A6CCD0 /* libPods-JustWantYourContactsTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BCBB9A0CFE7AB6B89AD4A31E /* libPods-JustWantYourContactsTests.a */; };
+		6EAB346B0E93F85BAB62266B /* libPods-JustWantYourContacts.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 77F51E964A5EB7C358674313 /* libPods-JustWantYourContacts.a */; };
+		7B63733C035B232AEE327FFC /* libPods-JustWantYourContacts-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B51918F64C27157C22A9050 /* libPods-JustWantYourContacts-tvOSTests.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,7 +44,6 @@
 		00E356EE1AD99517003FC87E /* JustWantYourContactsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JustWantYourContactsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* JustWantYourContactsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JustWantYourContactsTests.m; sourceTree = "<group>"; };
-		0EEADF9E38C674310C2E6CD5 /* Pods-JustWantYourContacts-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JustWantYourContacts-tvOS.release.xcconfig"; path = "Target Support Files/Pods-JustWantYourContacts-tvOS/Pods-JustWantYourContacts-tvOS.release.xcconfig"; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* JustWantYourContacts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JustWantYourContacts.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = JustWantYourContacts/AppDelegate.h; sourceTree = "<group>"; };
 		13B07FB01A68108700A75B9A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = JustWantYourContacts/AppDelegate.m; sourceTree = "<group>"; };
@@ -52,21 +51,22 @@
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = JustWantYourContacts/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = JustWantYourContacts/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = JustWantYourContacts/main.m; sourceTree = "<group>"; };
+		1B51918F64C27157C22A9050 /* libPods-JustWantYourContacts-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-JustWantYourContacts-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D02E47B1E0B4A5D006451C7 /* JustWantYourContacts-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "JustWantYourContacts-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D02E4901E0B4A5D006451C7 /* JustWantYourContacts-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "JustWantYourContacts-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		37515B09C076E0CC55C19D1E /* libPods-JustWantYourContacts-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-JustWantYourContacts-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		3BB47D879A8DDE45074E4879 /* libPods-JustWantYourContacts.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-JustWantYourContacts.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		6A93FFEE2EA14ABDF9BF3217 /* libPods-JustWantYourContacts-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-JustWantYourContacts-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		8057838F89D65301EB5B98AC /* Pods-JustWantYourContacts-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JustWantYourContacts-tvOS.debug.xcconfig"; path = "Target Support Files/Pods-JustWantYourContacts-tvOS/Pods-JustWantYourContacts-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
-		8299B662504F0B28DF269B26 /* Pods-JustWantYourContactsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JustWantYourContactsTests.release.xcconfig"; path = "Target Support Files/Pods-JustWantYourContactsTests/Pods-JustWantYourContactsTests.release.xcconfig"; sourceTree = "<group>"; };
-		8BAD2849BCEB30B6C893BA6F /* Pods-JustWantYourContacts.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JustWantYourContacts.debug.xcconfig"; path = "Target Support Files/Pods-JustWantYourContacts/Pods-JustWantYourContacts.debug.xcconfig"; sourceTree = "<group>"; };
-		94002C0BC6A62F86C74B08F6 /* Pods-JustWantYourContacts.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JustWantYourContacts.release.xcconfig"; path = "Target Support Files/Pods-JustWantYourContacts/Pods-JustWantYourContacts.release.xcconfig"; sourceTree = "<group>"; };
-		99BE39FCB773AE1951D68F5B /* libPods-JustWantYourContactsTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-JustWantYourContactsTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		AB791A3F272F98ECB2967502 /* Pods-JustWantYourContacts-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JustWantYourContacts-tvOSTests.debug.xcconfig"; path = "Target Support Files/Pods-JustWantYourContacts-tvOSTests/Pods-JustWantYourContacts-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
-		D3BCB6775E0F00419561B85B /* Pods-JustWantYourContacts-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JustWantYourContacts-tvOSTests.release.xcconfig"; path = "Target Support Files/Pods-JustWantYourContacts-tvOSTests/Pods-JustWantYourContacts-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
+		748602DE6772AA51AE25ABFA /* Pods-JustWantYourContactsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JustWantYourContactsTests.release.xcconfig"; path = "Target Support Files/Pods-JustWantYourContactsTests/Pods-JustWantYourContactsTests.release.xcconfig"; sourceTree = "<group>"; };
+		77F51E964A5EB7C358674313 /* libPods-JustWantYourContacts.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-JustWantYourContacts.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		79150284F556CA2EB5EDDFED /* Pods-JustWantYourContacts-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JustWantYourContacts-tvOS.debug.xcconfig"; path = "Target Support Files/Pods-JustWantYourContacts-tvOS/Pods-JustWantYourContacts-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
+		7C1B35FADBF0824E03F97C9B /* Pods-JustWantYourContacts.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JustWantYourContacts.debug.xcconfig"; path = "Target Support Files/Pods-JustWantYourContacts/Pods-JustWantYourContacts.debug.xcconfig"; sourceTree = "<group>"; };
+		A063AADF4E8B682134188E71 /* libPods-JustWantYourContacts-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-JustWantYourContacts-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A367781372B9237E6FE03910 /* Pods-JustWantYourContacts-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JustWantYourContacts-tvOS.release.xcconfig"; path = "Target Support Files/Pods-JustWantYourContacts-tvOS/Pods-JustWantYourContacts-tvOS.release.xcconfig"; sourceTree = "<group>"; };
+		BCBA08B1EAC1057C2236088A /* Pods-JustWantYourContactsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JustWantYourContactsTests.debug.xcconfig"; path = "Target Support Files/Pods-JustWantYourContactsTests/Pods-JustWantYourContactsTests.debug.xcconfig"; sourceTree = "<group>"; };
+		BCBB9A0CFE7AB6B89AD4A31E /* libPods-JustWantYourContactsTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-JustWantYourContactsTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BE8B9FBC47DD89B05A132486 /* Pods-JustWantYourContacts-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JustWantYourContacts-tvOSTests.debug.xcconfig"; path = "Target Support Files/Pods-JustWantYourContacts-tvOSTests/Pods-JustWantYourContacts-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
+		C146D3661571B379A8D6A70E /* Pods-JustWantYourContacts.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JustWantYourContacts.release.xcconfig"; path = "Target Support Files/Pods-JustWantYourContacts/Pods-JustWantYourContacts.release.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		ED2971642150620600B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.0.sdk/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
-		F9BB2342B81675C5BBFE3195 /* Pods-JustWantYourContactsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JustWantYourContactsTests.debug.xcconfig"; path = "Target Support Files/Pods-JustWantYourContactsTests/Pods-JustWantYourContactsTests.debug.xcconfig"; sourceTree = "<group>"; };
+		FA93A4C696709391708553FD /* Pods-JustWantYourContacts-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JustWantYourContacts-tvOSTests.release.xcconfig"; path = "Target Support Files/Pods-JustWantYourContacts-tvOSTests/Pods-JustWantYourContacts-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,7 +74,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4C55CB2BB7ECF1B8C14132B5 /* libPods-JustWantYourContactsTests.a in Frameworks */,
+				66B2D0EAD882BD7276A6CCD0 /* libPods-JustWantYourContactsTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -82,7 +82,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				412130FB0538977AFE2007CE /* libPods-JustWantYourContacts.a in Frameworks */,
+				6EAB346B0E93F85BAB62266B /* libPods-JustWantYourContacts.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -90,7 +90,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5858C548CEE72C45ECC91EBE /* libPods-JustWantYourContacts-tvOS.a in Frameworks */,
+				0AB9A545045111CF2E7EBAC4 /* libPods-JustWantYourContacts-tvOS.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -98,7 +98,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8F4B881EFA9E6B64104E3E2D /* libPods-JustWantYourContacts-tvOSTests.a in Frameworks */,
+				7B63733C035B232AEE327FFC /* libPods-JustWantYourContacts-tvOSTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -141,10 +141,10 @@
 			children = (
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
 				ED2971642150620600B7C4FE /* JavaScriptCore.framework */,
-				3BB47D879A8DDE45074E4879 /* libPods-JustWantYourContacts.a */,
-				37515B09C076E0CC55C19D1E /* libPods-JustWantYourContacts-tvOS.a */,
-				6A93FFEE2EA14ABDF9BF3217 /* libPods-JustWantYourContacts-tvOSTests.a */,
-				99BE39FCB773AE1951D68F5B /* libPods-JustWantYourContactsTests.a */,
+				77F51E964A5EB7C358674313 /* libPods-JustWantYourContacts.a */,
+				A063AADF4E8B682134188E71 /* libPods-JustWantYourContacts-tvOS.a */,
+				1B51918F64C27157C22A9050 /* libPods-JustWantYourContacts-tvOSTests.a */,
+				BCBB9A0CFE7AB6B89AD4A31E /* libPods-JustWantYourContactsTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -164,7 +164,7 @@
 				00E356EF1AD99517003FC87E /* JustWantYourContactsTests */,
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
-				9D1EF32DD5724737DDE9DEA1 /* Pods */,
+				B86AB615E17FF371D089334E /* Pods */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -182,17 +182,17 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		9D1EF32DD5724737DDE9DEA1 /* Pods */ = {
+		B86AB615E17FF371D089334E /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				8BAD2849BCEB30B6C893BA6F /* Pods-JustWantYourContacts.debug.xcconfig */,
-				94002C0BC6A62F86C74B08F6 /* Pods-JustWantYourContacts.release.xcconfig */,
-				8057838F89D65301EB5B98AC /* Pods-JustWantYourContacts-tvOS.debug.xcconfig */,
-				0EEADF9E38C674310C2E6CD5 /* Pods-JustWantYourContacts-tvOS.release.xcconfig */,
-				AB791A3F272F98ECB2967502 /* Pods-JustWantYourContacts-tvOSTests.debug.xcconfig */,
-				D3BCB6775E0F00419561B85B /* Pods-JustWantYourContacts-tvOSTests.release.xcconfig */,
-				F9BB2342B81675C5BBFE3195 /* Pods-JustWantYourContactsTests.debug.xcconfig */,
-				8299B662504F0B28DF269B26 /* Pods-JustWantYourContactsTests.release.xcconfig */,
+				7C1B35FADBF0824E03F97C9B /* Pods-JustWantYourContacts.debug.xcconfig */,
+				C146D3661571B379A8D6A70E /* Pods-JustWantYourContacts.release.xcconfig */,
+				79150284F556CA2EB5EDDFED /* Pods-JustWantYourContacts-tvOS.debug.xcconfig */,
+				A367781372B9237E6FE03910 /* Pods-JustWantYourContacts-tvOS.release.xcconfig */,
+				BE8B9FBC47DD89B05A132486 /* Pods-JustWantYourContacts-tvOSTests.debug.xcconfig */,
+				FA93A4C696709391708553FD /* Pods-JustWantYourContacts-tvOSTests.release.xcconfig */,
+				BCBA08B1EAC1057C2236088A /* Pods-JustWantYourContactsTests.debug.xcconfig */,
+				748602DE6772AA51AE25ABFA /* Pods-JustWantYourContactsTests.release.xcconfig */,
 			);
 			name = Pods;
 			path = Pods;
@@ -205,7 +205,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "JustWantYourContactsTests" */;
 			buildPhases = (
-				A52471885E10DA8881369D54 /* [CP] Check Pods Manifest.lock */,
+				8B3DB41B94029A5BA5206B68 /* [CP] Check Pods Manifest.lock */,
 				00E356EA1AD99517003FC87E /* Sources */,
 				00E356EB1AD99517003FC87E /* Frameworks */,
 				00E356EC1AD99517003FC87E /* Resources */,
@@ -224,7 +224,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "JustWantYourContacts" */;
 			buildPhases = (
-				396A567156D614FFC5391501 /* [CP] Check Pods Manifest.lock */,
+				A1F775FC96C1949A6E28F59F /* [CP] Check Pods Manifest.lock */,
 				FD10A7F022414F080027D42C /* Start Packager */,
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
@@ -244,7 +244,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2D02E4BA1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "JustWantYourContacts-tvOS" */;
 			buildPhases = (
-				DB2F3BAE19D9E9CA7752F5E4 /* [CP] Check Pods Manifest.lock */,
+				3CCFDAC5CF7055107A4684F5 /* [CP] Check Pods Manifest.lock */,
 				FD10A7F122414F3F0027D42C /* Start Packager */,
 				2D02E4771E0B4A5D006451C7 /* Sources */,
 				2D02E4781E0B4A5D006451C7 /* Frameworks */,
@@ -264,7 +264,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2D02E4BB1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "JustWantYourContacts-tvOSTests" */;
 			buildPhases = (
-				EFC9F3C0B4A11BA6993F391B /* [CP] Check Pods Manifest.lock */,
+				7823F47942757C11E7ECA303 /* [CP] Check Pods Manifest.lock */,
 				2D02E48C1E0B4A5D006451C7 /* Sources */,
 				2D02E48D1E0B4A5D006451C7 /* Frameworks */,
 				2D02E48E1E0B4A5D006451C7 /* Resources */,
@@ -387,51 +387,7 @@
 			shellPath = /bin/sh;
 			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh";
 		};
-		396A567156D614FFC5391501 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-JustWantYourContacts-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		A52471885E10DA8881369D54 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-JustWantYourContactsTests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		DB2F3BAE19D9E9CA7752F5E4 /* [CP] Check Pods Manifest.lock */ = {
+		3CCFDAC5CF7055107A4684F5 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -453,7 +409,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		EFC9F3C0B4A11BA6993F391B /* [CP] Check Pods Manifest.lock */ = {
+		7823F47942757C11E7ECA303 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -469,6 +425,50 @@
 			);
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/Pods-JustWantYourContacts-tvOSTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8B3DB41B94029A5BA5206B68 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-JustWantYourContactsTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A1F775FC96C1949A6E28F59F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-JustWantYourContacts-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -580,7 +580,7 @@
 /* Begin XCBuildConfiguration section */
 		00E356F61AD99517003FC87E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F9BB2342B81675C5BBFE3195 /* Pods-JustWantYourContactsTests.debug.xcconfig */;
+			baseConfigurationReference = BCBA08B1EAC1057C2236088A /* Pods-JustWantYourContactsTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -603,7 +603,7 @@
 		};
 		00E356F71AD99517003FC87E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8299B662504F0B28DF269B26 /* Pods-JustWantYourContactsTests.release.xcconfig */;
+			baseConfigurationReference = 748602DE6772AA51AE25ABFA /* Pods-JustWantYourContactsTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
@@ -623,7 +623,7 @@
 		};
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8BAD2849BCEB30B6C893BA6F /* Pods-JustWantYourContacts.debug.xcconfig */;
+			baseConfigurationReference = 7C1B35FADBF0824E03F97C9B /* Pods-JustWantYourContacts.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CURRENT_PROJECT_VERSION = 1;
@@ -643,7 +643,7 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 94002C0BC6A62F86C74B08F6 /* Pods-JustWantYourContacts.release.xcconfig */;
+			baseConfigurationReference = C146D3661571B379A8D6A70E /* Pods-JustWantYourContacts.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CURRENT_PROJECT_VERSION = 1;
@@ -662,7 +662,7 @@
 		};
 		2D02E4971E0B4A5E006451C7 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8057838F89D65301EB5B98AC /* Pods-JustWantYourContacts-tvOS.debug.xcconfig */;
+			baseConfigurationReference = 79150284F556CA2EB5EDDFED /* Pods-JustWantYourContacts-tvOS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -690,7 +690,7 @@
 		};
 		2D02E4981E0B4A5E006451C7 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0EEADF9E38C674310C2E6CD5 /* Pods-JustWantYourContacts-tvOS.release.xcconfig */;
+			baseConfigurationReference = A367781372B9237E6FE03910 /* Pods-JustWantYourContacts-tvOS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -718,7 +718,7 @@
 		};
 		2D02E4991E0B4A5E006451C7 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = AB791A3F272F98ECB2967502 /* Pods-JustWantYourContacts-tvOSTests.debug.xcconfig */;
+			baseConfigurationReference = BE8B9FBC47DD89B05A132486 /* Pods-JustWantYourContacts-tvOSTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_NONNULL = YES;
@@ -745,7 +745,7 @@
 		};
 		2D02E49A1E0B4A5E006451C7 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D3BCB6775E0F00419561B85B /* Pods-JustWantYourContacts-tvOSTests.release.xcconfig */;
+			baseConfigurationReference = FA93A4C696709391708553FD /* Pods-JustWantYourContacts-tvOSTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_NONNULL = YES;
