@@ -1,12 +1,3 @@
-/**
- * Loads main app
- * 
- * At the moment, it 
- *  - gets the auth token (which could refactored/moved a login screen)
- *  - sends the contacts to the server
- * 
- */
-
 import React, {useState, useEffect} from 'react';
 import {
   Platform,
@@ -19,29 +10,27 @@ import {
 } from 'react-native';
 import Contacts from 'react-native-contacts';
 
-import { Colors } from 'react-native/Libraries/NewAppScreen';
-import { cleanContacts } from './helpers.js';
+import {Colors} from 'react-native/Libraries/NewAppScreen';
+import {cleanContacts} from '../shared/helpers';
 
 const ROOT_URL = 'https://antisocial-network-api.herokuapp.com';
 
-const App = () => {
+export default () => {
   const [allContacts, setAllContacts] = useState([]);
   const [authToken, setAuthToken] = useState(null);
 
   useEffect(() => {
     const getEverything = async () => {
       const getAuthToken = async () => {
-        const response = await fetch(
-          `${ROOT_URL}/auth/login`, {
+        const response = await fetch(`${ROOT_URL}/auth/login`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
           },
-          body: '{"email": "admin@mail.com", "password": "admin"}'
-          }
-        );
+          body: '{"email": "admin@mail.com", "password": "admin"}',
+        });
 
-        const { access_token } = await response.json();
+        const {access_token} = await response.json();
         return access_token;
       };
 
@@ -89,15 +78,13 @@ const App = () => {
 
           // should be userId where it's hardcoded 1
           const cleanedContacts = cleanContacts(1, allContacts);
-          
+
           // send to server
-          await fetch(
-            `${ROOT_URL}/api/v1/contacts`, {
-              method: 'POST',
-              headers,
-              body: JSON.stringify(cleanedContacts)
-            }
-          );
+          await fetch(`${ROOT_URL}/api/v1/contacts`, {
+            method: 'POST',
+            headers,
+            body: JSON.stringify(cleanedContacts),
+          });
         };
 
         await sendContactsToServer(authToken, allContacts);
@@ -142,5 +129,3 @@ const styles = StyleSheet.create({
     color: Colors.dark,
   },
 });
-
-export default App;
