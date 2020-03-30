@@ -9,19 +9,19 @@ import HandwaveWoman from '../assets/handwave_woman.svg';
 import OpenBook from '../assets/open_book.svg';
 import Celebrate from '../assets/celebrate.svg';
 import Cocktail from '../assets/cocktail.svg';
-import {SIGN_UP, LOG_IN} from './constants';
+import {Mode} from './App';
 
 type GetStartedProps = {
-  switchMode: (mode: string) => void;
+  switchMode: (mode: Mode) => void;
 };
 
 export default ({switchMode}: GetStartedProps) => {
   const goToSignUp = () => {
-    switchMode(SIGN_UP);
+    switchMode(Mode.SIGN_UP);
   };
 
   const goToLogIn = () => {
-    switchMode(LOG_IN);
+    switchMode(Mode.LOG_IN);
   };
 
   return (

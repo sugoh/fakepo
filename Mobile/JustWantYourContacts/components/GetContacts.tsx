@@ -13,7 +13,7 @@ import Contacts from 'react-native-contacts';
 import {Colors} from 'react-native/Libraries/NewAppScreen';
 import {cleanContacts} from '../shared/helpers';
 
-const ROOT_URL = 'https://antisocial-network-api.herokuapp.com';
+import {ROOT_URL} from './constants';
 
 export default () => {
   const [allContacts, setAllContacts] = useState([]);
