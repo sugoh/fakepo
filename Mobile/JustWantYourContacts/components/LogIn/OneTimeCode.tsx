@@ -1,13 +1,20 @@
-import React, {useState, useRef} from 'react';
+import React, {useState, useRef, useEffect} from 'react';
 import Button from 'react-native-button';
-import {View, Text, TextInput} from 'react-native';
-import {signUpStyles as styles} from '../styles';
+import {View, Text, TextInput, KeyboardAvoidingView} from 'react-native';
+import Modal from 'react-native-modal';
+import {logInStyles as styles} from '../styles';
+import {formatPhoneNumber} from '../shared/helpers';
+
+const WAIT_TIME = 10;
 
 type Props = {
   oneTimeCode: string;
   phoneNumber: string;
+  email: string;
   setOneTimeCode: React.Dispatch<React.SetStateAction<string>>;
+  sendOneTimeCodeToPhone: () => void;
   handleContinue: () => void;
+  isLoading: boolean;
 };
 
 type FocusState = {
@@ -17,9 +24,15 @@ type FocusState = {
 export default ({
   oneTimeCode,
   phoneNumber,
+  email,
   setOneTimeCode,
+  sendOneTimeCodeToPhone,
   handleContinue,
+  isLoading,
 }: Props) => {
+  const [isResent, setIsResent] = useState<boolean>(false);
+  const [count, setCount] = useState<number>(WAIT_TIME);
+  const [timerID, setTimerID] = useState<number | null>(null);
   const [splitOneTimeCode, setSplitOneTimeCode] = useState<(number | null)[]>([
     null,
     null,
@@ -54,6 +67,36 @@ export default ({
     oneTimeCodeInput6,
   ];
 
+  const countDown = () => {
+    const id = setInterval(() => {
+      if (count > 0) {
+        setCount((count) => count - 1);
+      }
+    }, 1000);
+    setTimerID(id);
+  };
+
+  useEffect(() => {
+    if (count === WAIT_TIME) {
+      countDown();
+    }
+  }, [count]);
+
+  useEffect(() => {
+    if (timerID === null) return;
+    else if (timerID && count === 0) {
+      clearInterval(timerID);
+      setTimerID(null);
+    }
+    return () => clearInterval(timerID);
+  }, [timerID]);
+
+  const handleResetTimer = () => {
+    sendOneTimeCodeToPhone();
+    setIsResent(true);
+    setCount(WAIT_TIME);
+  };
+
   const handleFocus = (focusID: string) => {
     setFocusStates({...focusStates, [focusID]: true});
   };
@@ -65,6 +108,7 @@ export default ({
   const onChange = (text: string, pos: number) => {
     const newSplitOneTimeCode = [...splitOneTimeCode];
     const textToInt = Number.parseInt(text, 10);
+
     if (Number.isNaN(textToInt)) {
       newSplitOneTimeCode[pos] = null;
     } else {
@@ -77,7 +121,6 @@ export default ({
     if (text.length === 1) {
       if (pos < 5) {
         allRefs[pos + 1].current?.focus();
-        console.log(allRefs[pos + 1].current);
       }
     } else if (text.length === 0) {
       if (pos > 0) {
@@ -90,15 +133,29 @@ export default ({
     <>
       <View style={styles.textView}>
         <Text style={styles.titleText}>Enter verification code</Text>
-        <Text style={{...styles.normalText, marginTop: 5}}>
-          Enter the 6-digit code sent to you at {phoneNumber}
-        </Text>
+        {!isResent ? (
+          <>
+            <Text style={{...styles.normalText, marginTop: 5}}>
+              Enter the 6-digit code sent to you
+            </Text>
+            <Text style={{...styles.normalText, marginTop: 5}}>
+              at {formatPhoneNumber(phoneNumber) || email}
+            </Text>
+          </>
+        ) : (
+          <>
+            <Text style={{...styles.normalText, marginTop: 5}}>
+              SMS re-sent. It might take up to a minute
+            </Text>
+            <Text style={{...styles.normalText, marginTop: 5}}>to arrive.</Text>
+          </>
+        )}
       </View>
       <View style={styles.formView}>
         <View style={styles.multipleTextInputView}>
           <TextInput
             ref={oneTimeCodeInput1}
-            onChangeText={text => onChange(text, 0)}
+            onChangeText={(text) => onChange(text, 0)}
             value={splitOneTimeCode[0]?.toString()}
             placeholderTextColor="#A0BCC8"
             style={{
@@ -118,7 +175,12 @@ export default ({
           />
           <TextInput
             ref={oneTimeCodeInput2}
-            onChangeText={text => onChange(text, 1)}
+            onChangeText={(text) => onChange(text, 1)}
+            onKeyPress={({nativeEvent}) => {
+              if (nativeEvent.key === 'Backspace') {
+                allRefs[0].current?.focus();
+              }
+            }}
             value={splitOneTimeCode[1]?.toString()}
             placeholderTextColor="#A0BCC8"
             style={{
@@ -138,7 +200,12 @@ export default ({
           />
           <TextInput
             ref={oneTimeCodeInput3}
-            onChangeText={text => onChange(text, 2)}
+            onChangeText={(text) => onChange(text, 2)}
+            onKeyPress={({nativeEvent}) => {
+              if (nativeEvent.key === 'Backspace') {
+                allRefs[1].current?.focus();
+              }
+            }}
             value={splitOneTimeCode[2]?.toString()}
             placeholderTextColor="#A0BCC8"
             style={{
@@ -158,7 +225,12 @@ export default ({
           />
           <TextInput
             ref={oneTimeCodeInput4}
-            onChangeText={text => onChange(text, 3)}
+            onChangeText={(text) => onChange(text, 3)}
+            onKeyPress={({nativeEvent}) => {
+              if (nativeEvent.key === 'Backspace') {
+                allRefs[2].current?.focus();
+              }
+            }}
             value={splitOneTimeCode[3]?.toString()}
             placeholderTextColor="#A0BCC8"
             style={{
@@ -178,7 +250,12 @@ export default ({
           />
           <TextInput
             ref={oneTimeCodeInput5}
-            onChangeText={text => onChange(text, 4)}
+            onChangeText={(text) => onChange(text, 4)}
+            onKeyPress={({nativeEvent}) => {
+              if (nativeEvent.key === 'Backspace') {
+                allRefs[3].current?.focus();
+              }
+            }}
             value={splitOneTimeCode[4]?.toString()}
             placeholderTextColor="#A0BCC8"
             style={{
@@ -198,7 +275,12 @@ export default ({
           />
           <TextInput
             ref={oneTimeCodeInput6}
-            onChangeText={text => onChange(text, 5)}
+            onChangeText={(text) => onChange(text, 5)}
+            onKeyPress={({nativeEvent}) => {
+              if (nativeEvent.key === 'Backspace') {
+                allRefs[4].current?.focus();
+              }
+            }}
             value={splitOneTimeCode[5]?.toString()}
             placeholderTextColor="#A0BCC8"
             style={{
@@ -218,7 +300,7 @@ export default ({
           />
         </View>
       </View>
-      <View style={styles.buttonsView}>
+      <KeyboardAvoidingView behavior="position" style={styles.buttonsView}>
         <Button
           containerStyle={{
             ...styles.buttonContainer,
@@ -229,7 +311,7 @@ export default ({
             fontWeight: 'bold',
             paddingTop: 2,
           }}
-          disabled={phoneNumber.length !== 6}
+          disabled={oneTimeCode.length !== 6}
           onPress={handleContinue}>
           Continue
         </Button>
@@ -240,10 +322,17 @@ export default ({
           }}
           style={{
             color: '#7FBF16',
-          }}>
-          Resend code
+          }}
+          onPress={handleResetTimer}
+          disabled={count > 0}>
+          Resend code {count > 0 && `in ${count}s`}
         </Button>
-      </View>
+      </KeyboardAvoidingView>
+      <Modal isVisible={isLoading}>
+        <View>
+          <Text>HEYU</Text>
+        </View>
+      </Modal>
     </>
   );
 };

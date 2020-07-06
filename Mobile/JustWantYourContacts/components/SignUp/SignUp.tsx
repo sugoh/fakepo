@@ -18,6 +18,7 @@ import {Mode} from '../App';
 
 type SignUpProps = {
   cancel: () => void;
+  switchMode: (mode: Mode) => void;
 };
 
 enum Steps {
@@ -28,58 +29,48 @@ enum Steps {
 }
 
 // TODO:
-// check if email used
-// check phone number
+// check if email used or valid
 // add loading spinner
 
-export default ({cancel}: SignUpProps) => {
-  // TODO: turn all of these states into a custom hook
+export default ({cancel, switchMode}: SignUpProps) => {
+  const [step, setStep] = useState<Steps>(Steps.FIRST_AND_LAST_NAME);
+  const [email, setEmail] = useState<string>('');
+  const [firstName, setFirstName] = useState<string>('');
+  const [lastName, setLastName] = useState<string>('');
+  const [phoneNumber, setPhoneNumber] = useState<string>('');
+  const [oneTimeCode, setOneTimeCode] = useState<string>('');
+  const [isTakenEmail, setIsTakenEmail] = useState<boolean>(false);
+  const [loading, setLoading] = useState<boolean>(false);
 
-  const [step, setStep] = useState(Steps.FIRST_AND_LAST_NAME);
-  const [email, setEmail] = useState('');
-  const [firstName, setFirstName] = useState('');
-  const [lastName, setLastName] = useState('');
-  const [phoneNumber, setPhoneNumber] = useState('');
-  const [oneTimeCode, setOneTimeCode] = useState('');
-  const [systemOneTimeCode, setSystemOneTimeCode] = useState('');
-  const [loading, setLoading] = useState(false);
-
-  const getOneTimeCode = async () => {
+  const sendOneTimeCodeToPhone = async () => {
     try {
-      const response = await fetch(`${ROOT_URL}/auth/sms-challenge`, {
+      await fetch(`${ROOT_URL}/auth/sms-challenge`, {
         method: 'POST',
         headers: {'Content-Type': 'Application/json'},
-        body: `{"phone": ${phoneNumber}}`,
+        body: `{"phone": "+1${phoneNumber}"}`,
       });
-
-      const {code} = await response.json();
-
-      setSystemOneTimeCode(code);
     } catch (err) {
       console.log(err);
     }
   };
 
-  const checkOneTimeCode = async () => {
-    try {
-      if (oneTimeCode === systemOneTimeCode) return;
-      const response = await fetch(`${ROOT_URL}/auth/login`, {
-        method: 'POST',
-        headers: {'Content-Type': 'Application/json'},
-        body: `{"phone": ${phoneNumber},  "code": ${oneTimeCode}}`,
-      });
-
-      const {authToken, userId} = await response.json();
-
-      return {authToken, userId};
-    } catch (err) {
-      console.log(err);
-    }
-  };
-
-  const handleSignUp = () => {
+  const handleSignUp = async () => {
     // TODO: send everything off to the API
     console.log('signing up');
+    return {accessToken: 'fakeToken'};
+  };
+
+  const addEmailToProfile = async (emailAddress: string) => {
+    try {
+      // await fetch(`${ROOT_URL}/auth/sms-challenge`, {
+      //   method: 'POST',
+      //   headers: {'Content-Type': 'Application/json'},
+      //   body: `{"phone": "+1${phoneNumber}"}`,
+      // });
+      // TODO: send email
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   const handleContinue = async () => {
@@ -88,17 +79,23 @@ export default ({cancel}: SignUpProps) => {
       setStep(Steps.PHONE_NUMBER);
     } else if (step === Steps.PHONE_NUMBER) {
       if (phoneNumber === '') return;
-      await getOneTimeCode();
+      await sendOneTimeCodeToPhone();
       setStep(Steps.ONE_TIME_CODE);
     } else if (step === Steps.ONE_TIME_CODE) {
       if (oneTimeCode === '') return;
-      const accessToken = await checkOneTimeCode();
+      setLoading(true);
+      const accessToken = await handleSignUp();
+      setLoading(false);
+
       if (!accessToken) return;
-      // we'll need to display an error message and let them request a resend here instead of blocking
       setStep(Steps.EMAIL);
     } else if (step === Steps.EMAIL) {
       if (email === '') return;
-      handleSignUp();
+      setLoading(true);
+      const res = await addEmailToProfile(email);
+      setLoading(false);
+
+      switchMode(Mode.DASHBOARD);
     }
   };
 
@@ -144,13 +141,16 @@ export default ({cancel}: SignUpProps) => {
           oneTimeCode={oneTimeCode}
           phoneNumber={phoneNumber}
           setOneTimeCode={setOneTimeCode}
+          sendOneTimeCodeToPhone={sendOneTimeCodeToPhone}
           handleContinue={handleContinue}
+          isLoading={loading}
         />
       ) : step === Steps.EMAIL ? (
         <Email
           email={email}
           setEmail={setEmail}
           handleContinue={handleContinue}
+          isTakenEmail={isTakenEmail}
         />
       ) : null}
     </SafeAreaView>

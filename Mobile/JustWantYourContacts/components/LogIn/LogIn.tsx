@@ -9,6 +9,7 @@ import LoadingSpinner from '../../assets/spinner.svg';
 import PhoneNumber from './PhoneNumber';
 import OneTimeCode from './OneTimeCode';
 import Email from './Email';
+import {Mode} from '../App';
 
 import {ROOT_URL} from '../constants';
 
@@ -16,31 +17,35 @@ import {logInStyles as styles} from '../styles';
 
 type LogInProps = {
   cancel: () => void;
+  switchMode: (mode: Mode) => void;
 };
 
-enum Steps {
+export enum Steps {
   PHONE_NUMBER = 'PHONE_NUMBER',
   ONE_TIME_CODE = 'ONE_TIME_CODE',
   EMAIL = 'EMAIL',
 }
 
-export default ({cancel}: LogInProps) => {
+export default ({cancel, switchMode}: LogInProps) => {
   const [step, setStep] = useState<Steps>(Steps.PHONE_NUMBER);
   const [email, setEmail] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('');
   const [oneTimeCode, setOneTimeCode] = useState('');
-  const [systemOneTimeCode, setSystemOneTimeCode] = useState('');
   const [loading, setLoading] = useState(false);
 
   const handleContinue = async () => {
     if (step === Steps.PHONE_NUMBER) {
-      await getOneTimeCode();
+      await sendOneTimeCodeToPhone();
       setStep(Steps.ONE_TIME_CODE);
     } else if (step === Steps.EMAIL) {
-      await getOneTimeCode();
+      await sendOneTimeCodeToPhone();
       setStep(Steps.ONE_TIME_CODE);
     } else if (step === Steps.ONE_TIME_CODE) {
-      await checkOneTimeCode();
+      setLoading(true);
+      const accessToken = await login();
+      if (!accessToken) return;
+      setLoading(false);
+      switchMode(Mode.DASHBOARD);
     }
   };
 
@@ -53,46 +58,34 @@ export default ({cancel}: LogInProps) => {
     }
   };
 
-  const getOneTimeCode = async () => {
+  const sendOneTimeCodeToPhone = async () => {
     try {
-      const response = await fetch(`${ROOT_URL}/auth/sms-challenge`, {
+      await fetch(`${ROOT_URL}/auth/sms-challenge`, {
         method: 'POST',
         headers: {'Content-Type': 'Application/json'},
-        body: `{"phone": ${phoneNumber}}`,
+        body: `{"phone": "+1${phoneNumber}"}`,
       });
-
-      const {code} = await response.json();
-
-      setSystemOneTimeCode(code);
     } catch (err) {
       console.log(err);
     }
   };
 
-  const checkOneTimeCode = async () => {
+  const login = async () => {
     try {
-      if (oneTimeCode === systemOneTimeCode) return;
       const response = await fetch(`${ROOT_URL}/auth/login`, {
         method: 'POST',
         headers: {'Content-Type': 'Application/json'},
-        body: `{"phone": ${phoneNumber},  "code": ${oneTimeCode}}`,
+        body: `{"phone": +1${phoneNumber},  "code": "${oneTimeCode}"}`,
       });
 
-      const {authToken, userId} = await response.json();
+      console.log(response);
 
-      return {authToken, userId};
+      const {authToken, user_id} = await response.json();
+
+      return {authToken, user_id};
     } catch (err) {
       console.log(err);
     }
-  };
-
-  const login = () => {
-    setLoading(true);
-    // TODO: actually talk to the API
-  };
-
-  const forgotLogin = () => {
-    // TODO: implement
   };
 
   return (
@@ -114,6 +107,7 @@ export default ({cancel}: LogInProps) => {
             phoneNumber={phoneNumber}
             setPhoneNumber={setPhoneNumber}
             handleContinue={handleContinue}
+            setStep={setStep}
           />
         ) : step === Steps.EMAIL ? (
           <Email
@@ -125,12 +119,14 @@ export default ({cancel}: LogInProps) => {
           <OneTimeCode
             oneTimeCode={oneTimeCode}
             setOneTimeCode={setOneTimeCode}
+            sendOneTimeCodeToPhone={sendOneTimeCodeToPhone}
             phoneNumber={phoneNumber}
+            email={email}
             handleContinue={handleContinue}
+            isLoading={loading}
           />
         ) : null}
       </SafeAreaView>
-      {loading && <Modal />}
     </>
   );
 };

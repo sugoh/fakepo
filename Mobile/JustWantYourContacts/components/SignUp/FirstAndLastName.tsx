@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import Button from 'react-native-button';
-import {View, Text, TextInput} from 'react-native';
+import {View, Text, TextInput, KeyboardAvoidingView} from 'react-native';
 import {signUpStyles as styles} from '../styles';
 
 type Props = {
@@ -44,7 +44,7 @@ export default ({
       </View>
       <View style={styles.formView}>
         <TextInput
-          onChangeText={text => setFirstName(text)}
+          onChangeText={(text) => setFirstName(text)}
           value={firstName}
           placeholder="First name"
           placeholderTextColor="#A0BCC8"
@@ -62,7 +62,7 @@ export default ({
           onBlur={() => handleBlur('firstNameInput')}
         />
         <TextInput
-          onChangeText={text => setLastName(text)}
+          onChangeText={(text) => setLastName(text)}
           value={lastName}
           placeholder="Last name"
           placeholderTextColor="#A0BCC8"
@@ -80,7 +80,7 @@ export default ({
           onBlur={() => handleBlur('lastNameInput')}
         />
       </View>
-      <View style={styles.buttonsView}>
+      <KeyboardAvoidingView behavior="position" style={{...styles.buttonsView}}>
         <Button
           containerStyle={{
             ...styles.buttonContainer,
@@ -95,7 +95,7 @@ export default ({
           onPress={handleContinue}>
           Continue
         </Button>
-      </View>
+      </KeyboardAvoidingView>
     </>
   );
 };
